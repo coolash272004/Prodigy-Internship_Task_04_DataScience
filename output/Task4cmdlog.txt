@@ -1,0 +1,122 @@
+runfile('F:/Prodigy_Projects/Task4/Task_04_DataScience.py', wdir='F:/Prodigy_Projects/Task4')
+         id  ...                                      Tweet content
+0      2401  ...  im getting on borderlands and i will murder yo...
+1      2401  ...  I am coming to the borders and I will kill you...
+2      2401  ...  im getting on borderlands and i will kill you ...
+3      2401  ...  im coming on borderlands and i will murder you...
+4      2401  ...  im getting on borderlands 2 and i will murder ...
+    ...  ...                                                ...
+74677  9200  ...  Just realized that the Windows partition of my...
+74678  9200  ...  Just realized that my Mac window partition is ...
+74679  9200  ...  Just realized the windows partition of my Mac ...
+74680  9200  ...  Just realized between the windows partition of...
+74681  9200  ...  Just like the windows partition of my Mac is l...
+
+[74682 rows x 4 columns]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 74682 entries, 0 to 74681
+Data columns (total 4 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   id             74682 non-null  int64 
+ 1   entity         74682 non-null  object
+ 2   target         74682 non-null  object
+ 3   Tweet content  73996 non-null  object
+dtypes: int64(1), object(3)
+memory usage: 2.3+ MB
+None
+         target                                      Tweet content
+0      Positive  im getting on borderlands and i will murder yo...
+1      Positive  I am coming to the borders and I will kill you...
+2      Positive  im getting on borderlands and i will kill you ...
+3      Positive  im coming on borderlands and i will murder you...
+4      Positive  im getting on borderlands 2 and i will murder ...
+        ...                                                ...
+74677  Positive  Just realized that the Windows partition of my...
+74678  Positive  Just realized that my Mac window partition is ...
+74679  Positive  Just realized the windows partition of my Mac ...
+74680  Positive  Just realized between the windows partition of...
+74681  Positive  Just like the windows partition of my Mac is l...
+
+[74682 rows x 2 columns]
+target             0
+Tweet content    686
+dtype: int64
+None
+target
+Negative      22358
+Positive      20655
+Neutral       18108
+Irrelevant    12875
+Name: count, dtype: int64
+(73996, 5000)
+(73996,)
+
+--- Naive Bayes ---
+
+Accuracy: 0.6334459459459459
+
+Classification Report:
+               precision    recall  f1-score   support
+
+  Irrelevant       0.75      0.34      0.47      2696
+    Negative       0.62      0.81      0.70      4380
+     Neutral       0.67      0.51      0.58      3605
+    Positive       0.61      0.75      0.67      4119
+
+    accuracy                           0.63     14800
+   macro avg       0.66      0.60      0.60     14800
+weighted avg       0.65      0.63      0.62     14800
+
+
+Confusion Matrix:
+ [[ 918  737  302  739]
+ [  73 3541  300  466]
+ [ 138  826 1840  801]
+ [  98  638  307 3076]]
+
+--- Decision tree ---
+
+Accuracy: 0.7767567567567567
+
+Classification Report:
+               precision    recall  f1-score   support
+
+  Irrelevant       0.77      0.69      0.73      2696
+    Negative       0.82      0.81      0.81      4380
+     Neutral       0.72      0.79      0.75      3605
+    Positive       0.79      0.79      0.79      4119
+
+    accuracy                           0.78     14800
+   macro avg       0.78      0.77      0.77     14800
+weighted avg       0.78      0.78      0.78     14800
+
+
+Confusion Matrix:
+ [[1873  210  310  303]
+ [ 207 3529  409  235]
+ [ 146  283 2855  321]
+ [ 204  291  385 3239]]
+
+--- Random Forest ---
+
+Accuracy: 0.8837162162162162
+
+Classification Report:
+               precision    recall  f1-score   support
+
+  Irrelevant       0.95      0.80      0.87      2696
+    Negative       0.90      0.91      0.91      4380
+     Neutral       0.83      0.89      0.86      3605
+    Positive       0.88      0.90      0.89      4119
+
+    accuracy                           0.88     14800
+   macro avg       0.89      0.88      0.88     14800
+weighted avg       0.89      0.88      0.88     14800
+
+
+Confusion Matrix:
+ [[2166  140  200  190]
+ [  34 4001  220  125]
+ [  39  166 3206  194]
+ [  45  126  242 3706]]
